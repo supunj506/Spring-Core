@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 @Component
 public class DBConnection {
-    public Connection getData(){
+    public Connection getConnection(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/thogakade", "root", "1234");
