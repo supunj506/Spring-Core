@@ -15,4 +15,7 @@ public class SpringBean {
     public SpringBean() {
         System.out.println("SpringBean : Instantiated");
     }
+    public void test(){
+        System.out.println("SpringBean Test method invoked");
+    }
 }
