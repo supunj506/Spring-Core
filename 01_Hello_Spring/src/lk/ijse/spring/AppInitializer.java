@@ -10,6 +10,7 @@ package lk.ijse.spring;
 
 import lk.ijse.spring.config.AppConfig;
 import lk.ijse.spring.pojo.BasicDataSource;
+import lk.ijse.spring.pojo.ItemController;
 import lk.ijse.spring.pojo.SpringBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -30,8 +31,15 @@ public class AppInitializer {
         Object springBean = context.getBean("springBean");
         System.out.println(springBean);
 
-        BasicDataSource bean1 = (BasicDataSource) context.getBean("basicDataSource");
-        bean1.getPool();
+//        BasicDataSource bean1 = (BasicDataSource) context.getBean("basicDataSource");
+//        bean1.getPool();
+
+        ItemController item = (ItemController) context.getBean("item");
+        item.getItem();
+
+        BasicDataSource bean2 = (BasicDataSource) context.getBean("bds");
+        bean2.getPool();
+
 
         context.close();    
 

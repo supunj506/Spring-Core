@@ -20,7 +20,7 @@ public class AppConfig {
         System.out.println("AppConfig  : Instantiated");
     }
 
-    @Bean
+    @Bean(name = "bds")
     public BasicDataSource basicDataSource(){
         return new BasicDataSource();
     }
