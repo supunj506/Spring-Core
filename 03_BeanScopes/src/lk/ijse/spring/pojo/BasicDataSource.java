@@ -6,7 +6,7 @@
  * For GDSE course of IJSE institute.
  */
 
-package lk.ijse.spring.bean;
+package lk.ijse.spring.pojo;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;

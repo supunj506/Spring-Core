@@ -6,50 +6,49 @@
  * For GDSE course of IJSE institute.
  */
 
-package lk.ijse.spring.bean;
+package lk.ijse.spring.pojo;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-public class A implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
-
-    @Autowired
-    private B b ;
-    public A() {
-        System.out.println("A : Instantiated ");
+@Primary
+public class B implements BSuper, BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
+    public B() {
+        System.out.println("B : Instantiated ");
     }
 
-    public void sendRequestForB(){
-        b.callMe();
+    @Override
+    public void callMe() {
+        System.out.println("Received the call to B");
     }
 
     @Override
     public void setBeanName(String name) {
-        System.out.println("A : Bean Name Aware");
+        System.out.println("B : Bean Name Aware");
     }
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("A : Bean Factory Aware");
+        System.out.println("B : Bean Factory Aware");
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("A : Application Context Aware ");
+        System.out.println("B : Application Context Aware ");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("A : Initializing Bean / Ready");
+        System.out.println("B : Initializing Bean / Ready \n");
     }
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("A : Disposable Bean");
+        System.out.println("B : Disposable Bean");
     }
 }

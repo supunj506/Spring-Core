@@ -8,7 +8,7 @@
 
 package lk.ijse.spring;
 
-import lk.ijse.spring.bean.SpringBeanOne;
+import lk.ijse.spring.pojo.SpringBeanOne;
 import lk.ijse.spring.config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

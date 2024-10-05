@@ -8,7 +8,7 @@
 
 package lk.ijse.spring.config;
 
-import lk.ijse.spring.bean.BasicDataSource;
+import lk.ijse.spring.pojo.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

@@ -1,12 +1,12 @@
 /*
  * @author : xCODE
  * Project : SpringFramework
- * Date    : 10/2/2024 (Wednesday)
- * Time    : 3:43 PM
+ * Date    : 10/1/2024 (Tuesday)
+ * Time    : 3:47 PM
  * For GDSE course of IJSE institute.
  */
 
-package lk.ijse.spring.bean;
+package lk.ijse.spring.pojo;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
@@ -15,36 +15,33 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 @Component
-public class B implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
-    public B() {
-        System.out.println("B : Instantiated ");
-    }
-    public void callMe(){
-        System.out.println("Received the call");
+public class SpringBeanOne implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
+    public SpringBeanOne() {
+        System.out.println("SpringBeanOne : Instantiated");
     }
 
     @Override
     public void setBeanName(String name) {
-        System.out.println("B : Bean Name Aware");
+        System.out.println("SpringBeanOne : Bean Name Aware");
     }
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("B : Bean Factory Aware");
+        System.out.println("SpringBeanOne : Bean Factory Aware");
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("B : Application Context Aware ");
+        System.out.println("SpringBeanOne : Application Context Aware ");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("B : Initializing Bean / Ready");
+        System.out.println("SpringBeanOne : Initializing Bean / Ready");
     }
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("B : Disposable Bean");
+        System.out.println("SpringBeanOne : Disposable Bean");
     }
 }
