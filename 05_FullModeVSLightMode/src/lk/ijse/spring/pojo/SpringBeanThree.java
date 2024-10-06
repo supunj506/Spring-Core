@@ -15,36 +15,35 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 //@Component
-public class SpringBeanTwo implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
-    public SpringBeanTwo() {
-        System.out.println("SpringBeanTwo   : Instantiated ");
+public class SpringBeanThree implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
+    public SpringBeanThree() {
+        System.out.println("SpringBeanThree   : Instantiated ");
     }
 
     @Override
     public void setBeanName(String name) {
-        System.out.println("SpringBeanTwo   : Bean Name Aware");
+        System.out.println("SpringBeanThree   : Bean Name Aware");
     }
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("SpringBeanTwo   : Bean Factory Aware");
+        System.out.println("SpringBeanThree   : Bean Factory Aware");
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("SpringBeanTwo   : Application Context Aware");
+        System.out.println("SpringBeanThree   : Application Context Aware");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("SpringBeanTwo   : Initializing Bean\n");
+        System.out.println("SpringBeanThree   : Initializing Bean\n");
 
     }
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("SpringBeanTwo   : Disposable Bean ");
+        System.out.println("SpringBeanThree : Disposable Bean ");
 
     }
-
 }
