@@ -13,7 +13,7 @@ import lk.ijse.spring.config.ConfigOne;
 import lk.ijse.spring.config.ConfigTwo;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class AppInitializer extends AnnotationConfigApplicationContext {
+public class AppInitializer{
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();

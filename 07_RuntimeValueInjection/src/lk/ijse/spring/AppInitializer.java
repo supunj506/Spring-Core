@@ -2,7 +2,7 @@
  * @author : xCODE
  * Project : SpringFramework
  * Date    : 10/6/2024 (Sunday)
- * Time    : 2:13 AM
+ * Time    : 10:02 PM
  * For GDSE course of IJSE institute.
  */
 
@@ -13,7 +13,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class AppInitializer {
     public static void main(String[] args) {
-
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(AppConfig.class);
         ctx.refresh();
