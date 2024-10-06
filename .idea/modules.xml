@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/03_BeanScopes/03_BeanScopes.iml" filepath="$PROJECT_DIR$/03_BeanScopes/03_BeanScopes.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_DI_Spring/04_DI_Spring.iml" filepath="$PROJECT_DIR$/04_DI_Spring/04_DI_Spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/05_FullModeVSLightMode/05_FullModeVSLightMode.iml" filepath="$PROJECT_DIR$/05_FullModeVSLightMode/05_FullModeVSLightMode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_Configaration/06_Configaration.iml" filepath="$PROJECT_DIR$/06_Configaration/06_Configaration.iml" />
     </modules>
   </component>
 </project>
