@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Super Mart</title>
+    <link href="asset/lib/css_lib/normalize.css" rel="stylesheet">
+    <link href="asset/material/logo/superMartLogo.png" rel="icon">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap" rel="stylesheet">
+    <meta content="Super mart,super,mart " name="keywords">
+    <meta content="Sri lanka largest market place" name="description">
+    <meta content="S.M.Jayasinghe" name="author">
+    <meta content="S.M.Jayasinghe" name="owner">
+    <meta content="width=device-width initial-scale=1" name="viewport">
+    <link href="asset/lib/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="asset/custom_css/common/header/header.css" rel="stylesheet">
+
+    <link href="asset/custom_css/common/nav_icon/nav_icon_style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="asset/custom_css/orderDetails_form/orderDetails.css">
+
+</head>
+<body>
+
+<header>
+    <section>
+        <img alt="logo.png" id="logo" src="asset/material/logo/superMartLogo.png">
+        <h2>Super Mart POS System</h2>
+    </section>
+
+    <section>
+        <div>
+            <h4>25-04-2023</h4>
+            <h4>Monday</h4>
+            <h4>12:23</h4>
+        </div>
+        <div>
+            <img alt="userImage.png" id="userImage" src="asset/material/image/UserImage.png">
+            <p>Supun Jayasinghe</p>
+        </div>
+    </section>
+</header>
+
+<main>
+    <aside>
+        <nav>
+            <a href="order.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-purchase-order-96.png">
+                <h4>Order</h4>
+            </a>
+            <a href="customer.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-customer-64.png">
+                <h4>Customer</h4>
+            </a>
+            <a href="item.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-product-90.png">
+                <h4>Items</h4>
+            </a>
+            <a href="orderDetails.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-more-details-100.png">
+                <h4>Order Details</h4>
+            </a>
+        </nav>
+    </aside>
+
+    <section id="order_details_section">
+        <div>
+            <div id="titleSection">
+                <h2>Order Details</h2>
+            </div>
+            <div id="orderDetailsInputSection">
+
+                <div class="orderDetailInputDiv">
+                    <lable for="orderSelectBox" class="label">Order ID:</lable>
+                    <select id="orderSelectBox" class="inputElement" type="text"></select>
+                </div>
+                <div class="orderDetailInputDiv">
+                    <lable for="orderItemCount" class="label">Item Count :</lable>
+                    <input id="orderItemCount" class="inputElement" type="text">
+                </div>
+                <div class="orderDetailInputDiv">
+                    <lable for="orderTotalPrice" class="label">Total Price :</lable>
+                    <input id="orderTotalPrice" class="inputElement" type="text">
+                </div>
+
+            </div>
+            <div id="orderDetailsTableSection">
+
+                <table class="table table-hover table-bordered" id="orderDetailTable">
+                    <thead class="bg-info">
+                    <tr>
+                        <th scope="col">Item Code</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Unit Price</th>
+                        <th scope="col">By Quantity</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody id="orderDetailTableBody">
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+</main>
+<footer>
+    <p>Copyright @ 2023 All Right Reserved By Supun Madubhashitha</p>
+</footer>
+
+<script src="asset/lib/JQuery/jquery-3.6.1.min.js"></script>
+<script>
+
+    let baseUrl = "http://localhost:8080/project01/";
+    // console.log("run");
+    const orderId = $("#orderSelectBox");
+    const orderItemCount = $("#orderItemCount");
+    const orderTotalPrice = $("#orderTotalPrice");
+
+    let orderList;
+
+    loadAllOrderId();
+
+    function loadAllOrderId() {
+        orderId.empty();
+        $.ajax({
+            url: baseUrl + "orders",
+            success: function (resp) {
+                // console.log(resp);
+                orderList = resp;
+                let ids = resp;
+                ids.forEach(o => {
+                        orderId.append(`<option value = "${o.order_id}">${o.order_id}</option>`)
+                    }
+                )
+                orderId.val("");
+            }
+        })
+
+
+    }
+
+    orderId.change(function () {
+        let itemCount = 0;
+        let orderTotal=0;
+        orderTotalPrice.val("");
+        orderItemCount.val("");
+        orderList.forEach(order => {
+            if (this.value === order.order_id) {
+                $.ajax({
+                    url: baseUrl + "orderDetail?order_id=" + order.order_id,
+                    success: function (resp) {
+                        // console.log(resp);
+                        $("#orderDetailTableBody").empty();
+                        for(let order of resp){
+                            $("#orderDetailTableBody").append(`<tr><td>${order.item_code}</td><td>${order.description}</td><td>${order.price}</td><td>${order.qty}</td><td>${order.qty*order.price}</td></tr>`)
+                            itemCount++;
+                            orderTotal = orderTotal+(order.qty*order.price);
+                        }
+
+                        orderItemCount.val("  "+itemCount);
+                        orderTotalPrice.val(orderTotal+".00 LKR");
+                        console.log(orderTotal);
+
+                    }
+
+                })
+
+
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

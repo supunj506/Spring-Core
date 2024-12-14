@@ -7,6 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="springLib" level="project" />
+    <orderEntry type="library" name="sprinOnlyJar" level="project" />
+    <orderEntry type="library" name="springLib" level="project" />
   </component>
 </module>
